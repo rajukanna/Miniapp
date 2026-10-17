@@ -1,0 +1,82 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --line: #334155;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --x: #38bdf8;
+  --o: #f472b6;
+  --win: #22c55e;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, var(--bg));
+  color: var(--text);
+}
+.app {
+  width: min(92vw, 360px);
+  text-align: center;
+}
+h1 {
+  margin: 0 0 0.5rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+.status {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  min-height: 1.5rem;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+  background: var(--panel);
+  border-radius: 16px;
+}
+.cell {
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 12px;
+  background: #0b1220;
+  color: var(--text);
+  font-size: clamp(2rem, 12vw, 3rem);
+  font-weight: 700;
+  cursor: pointer;
+}
+.cell:hover:not(:disabled) {
+  background: #111827;
+}
+.cell:disabled {
+  cursor: not-allowed;
+}
+.cell.x {
+  color: var(--x);
+}
+.cell.o {
+  color: var(--o);
+}
+.cell.win {
+  background: color-mix(in srgb, var(--win) 22%, #0b1220);
+}
+.reset {
+  margin-top: 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  background: var(--line);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.reset:hover {
+  background: #475569;
+}
